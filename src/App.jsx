@@ -11,19 +11,31 @@ import ThankYou from "./components/ThankYou";
 import WeddingFlow from "./components/WeddingFlow";
 import Audio from "./components/Audio";
 
-// ── Import the mp3 as a Vite asset module ──
 import weddingSong from "./assets/Bomnorng.mp3";
 
+/* ── Optimized Scroll Reveal ── */
 function useScrollReveal() {
   useEffect(() => {
+    const elements = document.querySelectorAll(".reveal");
+    if (!elements.length) return;
+
     const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add("visible");
-        }),
-      { threshold: 0.15 }
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target); // stop observing once visible
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -40px 0px"
+      }
     );
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    elements.forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 }
@@ -34,13 +46,25 @@ export default function App() {
   return (
     <>
       <GlobalStyles />
-      <div style={{ position: "relative" }}>
+
+      <div
+        style={{
+          position: "relative",
+          contain: "layout paint style"
+        }}
+      >
         <Flowers />
 
-        {/* Pass the imported module, not a string path */}
+        {/* background music */}
         <Audio src={weddingSong} />
 
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            transform: "translateZ(0)"
+          }}
+        >
           <Hero />
           <InvitationCard />
           <WeddingFlow />
