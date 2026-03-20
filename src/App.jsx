@@ -1,6 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
 import GlobalStyles from "./styles/GlobalStyles";
 import Flowers from "./components/Flowers";
+import Audio from "./components/Audio";
+
 import Hero from "./components/Hero";
 import Countdown from "./components/Countdown";
 import Gallery from "./components/Gallery";
@@ -9,11 +12,9 @@ import Footer from "./components/Footer";
 import InvitationCard from "./components/InvitationCard";
 import ThankYou from "./components/ThankYou";
 import WeddingFlow from "./components/WeddingFlow";
-import Audio from "./components/Audio";
 
 import weddingSong from "./assets/Bomnorng.mp3";
 
-/* ── Optimized Scroll Reveal ── */
 function useScrollReveal() {
   useEffect(() => {
     const elements = document.querySelectorAll(".reveal");
@@ -24,18 +25,14 @@ function useScrollReveal() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            obs.unobserve(entry.target); // stop observing once visible
+            obs.unobserve(entry.target);
           }
         });
       },
-      {
-        threshold: 0.15,
-        rootMargin: "0px 0px -40px 0px"
-      }
+      { threshold: 0.15 }
     );
 
     elements.forEach((el) => observer.observe(el));
-
     return () => observer.disconnect();
   }, []);
 }
@@ -43,38 +40,33 @@ function useScrollReveal() {
 export default function App() {
   useScrollReveal();
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <>
       <GlobalStyles />
 
-      <div
-        style={{
-          position: "relative",
-          contain: "layout paint style"
-        }}
-      >
-        <Flowers />
+      {/* 🔊 ALWAYS OUTSIDE EVERYTHING */}
+      <Audio src={weddingSong} />
 
-        {/* background music */}
-        <Audio src={weddingSong} />
+      {/* 🌸 Disable heavy animation on mobile */}
+      {!isMobile && <Flowers />}
 
-        <div
-          style={{
-            position: "relative",
-            zIndex: 1,
-            transform: "translateZ(0)"
-          }}
-        >
-          <Hero />
-          <InvitationCard />
-          <WeddingFlow />
-          <Gallery />
-          <Location />
-          <Countdown />
-          <ThankYou />
-          <Footer />
-        </div>
-      </div>
+      {/* 📄 MAIN CONTENT (NO z-index here!) */}
+      <main>
+        <Hero />
+        <InvitationCard />
+        <WeddingFlow />
+        <Gallery />
+        <Location />
+        <Countdown />
+        <ThankYou />
+        <Footer />
+      </main>
     </>
   );
 }

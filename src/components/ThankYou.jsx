@@ -99,8 +99,8 @@ export default function ThankYou() {
 
         /* ── TITLE ── */
         .ty-title {
-          font-family: 'Preahvihear', serif;
-          font-size: clamp(1.6rem, 5.2vw, 1.7rem);
+          font-family: 'Moul', serif;
+          font-size: clamp(1.7rem, 5.2vw, 1.7rem);
           line-height: 1.8;
           margin-bottom: 6px;
           background: linear-gradient(
@@ -135,8 +135,8 @@ export default function ThankYou() {
 
         /* ── BODY PARAGRAPHS ── */
         .ty-para {
-          font-family: 'Preahvihear', serif;
-          font-size: clamp(1rem, 3.4vw, 1.05rem);
+          font-family: 'Battambang', serif;
+          font-size: clamp(1.2rem, 3.4vw, 1.05rem);
           font-weight: 400;
           color: #5a3a08;
           line-height: 2.1;

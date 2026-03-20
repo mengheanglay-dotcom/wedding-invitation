@@ -1,3 +1,4 @@
+/* RESET */
 * {
   box-sizing: border-box;
 }
@@ -38,7 +39,6 @@ img, svg {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  /* smoother scroll */
   scroll-behavior: smooth;
 }
 
@@ -62,12 +62,29 @@ body {
   width: 100%;
 
   overflow-x: hidden;
+  overflow-y: auto;
 
-  /* smoother mobile scrolling */
   -webkit-overflow-scrolling: touch;
 
-  /* reduce repaint cost */
-  transform: translateZ(0);
+  /* ❌ REMOVED (THIS WAS BREAKING YOUR BUTTON) */
+  /* transform: translateZ(0); */
+
+  /* ✅ ADD THIS INSTEAD */
+  position: relative;
+
+  /* ✅ prevent footer overlap */
+  padding-bottom: 120px;
+}
+
+/* 🔥 IMPORTANT FIX */
+html {
+  overflow-x: hidden;
+}
+
+/* 🔥 PREVENT CLIPPING FIXED ELEMENTS */
+section, div {
+  overflow-x: hidden;
+  overflow-y: visible;
 }
 
 /* Headings */

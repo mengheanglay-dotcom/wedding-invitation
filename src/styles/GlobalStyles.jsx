@@ -3,7 +3,11 @@ export default function GlobalStyles() {
     <style>{`
       @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Nunito:wght@300;400&display=swap');
 
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *, *::before, *::after { 
+        box-sizing: border-box; 
+        margin: 0; 
+        padding: 0; 
+      }
 
       :root {
         --gold: #c9a96e;
@@ -18,17 +22,34 @@ export default function GlobalStyles() {
         --text: #3d1f28;
       }
 
+      /* 🔥 FIX: prevent horizontal bugs */
       html {
         overflow-x: hidden;
+        scroll-behavior: smooth;
       }
 
       body {
         background: var(--ivory);
         font-family: 'Nunito', sans-serif;
         color: var(--text);
+
         overflow-x: hidden;
+        overflow-y: auto;
+
         width: 100%;
         max-width: 100vw;
+
+        /* 🔥 FIX: prevent footer covering fixed button */
+        padding-bottom: 120px;
+
+        /* 🔥 FIX: stabilize layout */
+        position: relative;
+      }
+
+      /* 🔥 CRITICAL FIX: prevent clipping fixed elements */
+      section, div {
+        overflow-x: hidden;
+        overflow-y: visible;
       }
 
       .font-display { font-family: 'Cormorant Garamond', serif; }
@@ -95,12 +116,14 @@ export default function GlobalStyles() {
         overflow: hidden;
         animation: pulse-glow 3s ease-in-out infinite;
       }
+
       .count-box .number {
         font-family: 'Cinzel', serif;
         font-size: 2.8rem;
         color: #e8d5a3;
         line-height: 1;
       }
+
       .count-box .label {
         font-size: 0.7rem;
         letter-spacing: 0.2em;
@@ -115,6 +138,7 @@ export default function GlobalStyles() {
         border-radius: 4px;
         border: 1px solid rgba(201,169,110,0.2);
       }
+
       .gallery-item img {
         width: 100%;
         height: 240px;
@@ -122,7 +146,9 @@ export default function GlobalStyles() {
         transition: transform 0.6s ease;
         display: block;
       }
+
       .gallery-item:hover img { transform: scale(1.07); }
+
       .gallery-item::after {
         content: '';
         position: absolute;
@@ -143,6 +169,7 @@ export default function GlobalStyles() {
         transform: translateY(30px);
         transition: opacity 0.8s ease, transform 0.8s ease;
       }
+
       .reveal.visible {
         opacity: 1;
         transform: translateY(0);
@@ -154,18 +181,36 @@ export default function GlobalStyles() {
         border-radius: 4px;
         position: relative;
       }
-      .card-ornate::before { content: '✦'; position: absolute; top: 8px; left: 8px; color: var(--gold); font-size: 10px; }
-      .card-ornate::after  { content: '✦'; position: absolute; bottom: 8px; right: 8px; color: var(--gold); font-size: 10px; }
 
-      /* ── Mobile Responsive ── */
+      .card-ornate::before { 
+        content: '✦'; 
+        position: absolute; 
+        top: 8px; 
+        left: 8px; 
+        color: var(--gold); 
+        font-size: 10px; 
+      }
+
+      .card-ornate::after {  
+        content: '✦'; 
+        position: absolute; 
+        bottom: 8px; 
+        right: 8px; 
+        color: var(--gold); 
+        font-size: 10px; 
+      }
+
+      /* 📱 Mobile */
       @media (max-width: 600px) {
         .count-box {
           padding: 14px 16px;
           min-width: 70px;
         }
+
         .count-box .number {
           font-size: 2rem;
         }
+
         .gallery-item img {
           height: 200px;
         }
