@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import GoldDivider from "./GoldDivider";
 
 const photos = [
-  { src: "/image/IMG_0166.JPEG",  caption: "Our Story",          kh: "រឿងរ៉ាវរបស់យើង" },
-  { src: "/image/IMG_0635.JPEG",  caption: "Together Forever",   kh: "រហូតអស់កល្ប"     },
-  { src: "/image/IMG_0211.JPEG",  caption: "Long Life Together", kh: "មានជីវិតរួមគ្នា"  },
-  { src: "/image/IMG_0171.JPEG",  caption: "Happiness",          kh: "សុភមង្គល"         },
-  { src: "/image/IMG_0184.JPEG",  caption: "Pure Joy",           kh: "ក្តីរីករាយ"       },
-  { src: "/image/image.png",      caption: "Memories",           kh: "추억"              },
+  { src: "/image/IMG_0166.JPEG",   },
+  { src: "/image/baot.JPEG",      },
+  { src: "/image/boat heart.png",  },
+  { src: "/image/floating protib.JPEG",  },
+  { src: "/image/dancing.png",      },
+  { src: "/image/IMG_0211.JPEG",    },
+  { src: "/image/cute.png",      },
+  { src: "/image/Chinese.JPG",  },
+  
 ];
 
 export default function Gallery() {
