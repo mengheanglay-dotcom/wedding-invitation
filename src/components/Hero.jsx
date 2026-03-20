@@ -93,6 +93,7 @@ export default function Hero() {
           align-items: center;
           justify-content: space-between;
           overflow: hidden;
+          flex-shrink: 0;
         }
 
         /* Background: absolutely positioned, covers hero, NEVER moves */

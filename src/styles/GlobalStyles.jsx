@@ -40,7 +40,7 @@ export default function GlobalStyles() {
         max-width: 100vw;
 
         /* 🔥 FIX: prevent footer covering fixed button */
-        padding-bottom: 120px;
+        // padding-bottom: 120px;
 
         /* 🔥 FIX: stabilize layout */
         position: relative;
@@ -48,8 +48,8 @@ export default function GlobalStyles() {
 
       /* 🔥 CRITICAL FIX: prevent clipping fixed elements */
       section, div {
-        overflow-x: hidden;
-        overflow-y: visible;
+        // overflow-x: hidden;
+        // overflow-y: visible;
       }
 
       .font-display { font-family: 'Cormorant Garamond', serif; }
