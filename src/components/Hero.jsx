@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const COUPLE_BG = "/public/Main.JPEG";
+const COUPLE_BG = "/image/Main.JPEG";
 
 export default function Hero() {
   const canvasRef = useRef(null);
