@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+
 import GlobalStyles from "./styles/GlobalStyles";
 import Flowers from "./components/Flowers";
 import Audio from "./components/Audio";
