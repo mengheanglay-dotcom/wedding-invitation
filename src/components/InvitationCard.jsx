@@ -485,7 +485,7 @@ export default function InvitationCard() {
           </div>
           <VLine />
           <div className="p-col right">
-            <span className="p-role">ឧត្តមសេនីយ</span>
+            <span className="p-role">ឧត្តមសេនីយ៏</span>
             <span className="p-name">ឡាយ សំអឿន</span>
             <span className="p-role" style={{marginTop:5}}>លោកស្រី</span>
             <span className="p-name">ខាយ ស៊ីនួន</span>
@@ -528,7 +528,7 @@ export default function InvitationCard() {
         {/* KHMER DATE / VENUE */}
         <p className="body-kh" style={{animationDelay:".5s"}}>
           នឹងប្រព្រឹត្តទៅនៅ<br/>
-          ថ្ងៃ <strong>អង្គារ ២១ មេសា ២០២៦</strong> វេលា​ម៉ោង <strong>៥:០០</strong> ល្ងាច<br/>
+          ថ្ងៃ <strong>អង្គារ  </strong> ទី <strong> ២១ មេសា ២០២៦</strong> វេលា​ម៉ោង <strong>៥:០០</strong> ល្ងាច<br/>
           នៅ <strong>AEON III មានជ័យ ផ្លូវ ៦០ម (សាល A+B)</strong><br/>
           រាជធានីភ្នំពេញ ដោយមេត្រី ។ <strong>សូមអរគុណ !!!</strong>
         </p>

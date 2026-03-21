@@ -2,14 +2,15 @@ import { useState, useEffect } from "react";
 import GoldDivider from "./GoldDivider";
 
 const photos = [
-  { src: "/image/IMG_0166.JPEG",   },
-  { src: "/image/baot.JPEG",      },
+  { src: "/image/Both Family.JPEG",   },
+  { src: "/image/hold hands.JPEG",      },
   { src: "/image/boat heart.png",  },
   { src: "/image/floating protib.JPEG",  },
-  { src: "/image/dancing.png",      },
+  { src: "/image/lan barang.png",      },
   { src: "/image/IMG_0211.JPEG",    },
   { src: "/image/cute.png",      },
   { src: "/image/Chinese.JPG",  },
+  
   
 ];
 

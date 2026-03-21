@@ -45,7 +45,7 @@ export default function Footer() {
         marginTop: "28px",
         alignItems: "flex-end"
       }}>
-       Crafted With <Heart size={10}/>  by Lay Mengheang
+       Crafted With ♥  by Lay Mengheang
       </p>
     </footer>
   );
